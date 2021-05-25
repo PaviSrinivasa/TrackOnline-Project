@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+      <title>Online Experiment Tool</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  </head>
+  <style>
+  /* Style the Navigation bar */
+  nav {
+  background-color: #008B8B
+  }
+
+  /* Style the footer */
+  footer {
+  background-color: Black;
+  padding: 18px;
+  text-align: center;
+  font-size: 18px;
+  color: white;
+}
+  </style>
+
+  <nav class="navbar navbar-inverse" >
+    <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="{% url 'home' %}">Online Experiment Tracking Tool</a>
+        </div>
+        <ul class="navbar-nav">
+          <li><a class="navbar-brand" href="{% url 'home' %}">Home</a></li>
+          <li><a class="navbar-brand" href="{% url 'add' %}">Add new Experiment</a></li>
+        </ul>
+    </div>
+  </nav>
+
+  <body>
+    {% block 'body' %}
+    {% endblock %}
+  <p> </p>
+  <p> </p>
+  <p> </p>
+  <footer>
+     <p>Max Planck Institute for Psycholinguistics</p>
+  </footer>
+
+  </body>
+</html>

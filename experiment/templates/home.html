@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% block 'body' %}
+
+<h2 style="color: Red">{{ note }}</h2>
+
+<p> </p>
+<body>
+<table class="table table-hover" style="border: 1px solid black, border-collapse: collapse">
+    <tr col span="15" style="background-color:LightGray">
+        <th>Name</th>
+        <th>Submitter</th>
+        <th>Submission Date</th>
+        <th>Type</th>
+        <th>Link</th>
+        <th>Tool</th>
+        <th>Finding Participants</th>
+        <th>Participant count in a week</th>
+        <th>Total Participants</th>
+        <th>Satisfied</th>
+        <th>Technical issues</th>
+        <th>Technical exclusions</th>
+        <th>Participant exclusions</th>
+        <th>Outcome</th>
+        <th>Comments</th>
+    </tr>
+    {% for infodetail in expInfo.all %}
+    {% csrf_token %}
+    <tr>
+        <th><a href="{% url 'edit_exp' infodetail.id %}">{{infodetail.name|capfirst}}</a></th>
+        <th>{{infodetail.submitter}}</th>
+        <th>{{infodetail.submission_date}}</th>
+        <th> {{ infodetail.exp_type }}</th>
+        <th> <a href={{ infodetail.exp_link }}>{{ infodetail.exp_link }}</a></th>
+        <th>{{ infodetail.exp_tool }}</th>
+        <th>{{ infodetail.participant_find }}</th>
+        <th>{{ infodetail.participant_in_week }}</th>
+        <th>{{ infodetail.participant_total }}</th>
+        <th>{{ infodetail.satisfactory}}</th>
+        <th>{{ infodetail.technical_issues }}</th>
+        <th>{{ infodetail.technical_exclusions }}%</th>
+        <th>{{ infodetail.pp_exclusions }}%</th>
+        <th>{{ infodetail.outcome }}</th>
+        <th>{{ infodetail.comments }}</th>
+    </tr>
+    {% endfor %}
+</table>
+
+</body>
+</html>
+
+{% endblock %}
+
