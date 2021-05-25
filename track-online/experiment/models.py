@@ -2,6 +2,7 @@ from django.db import models
 from datetime import datetime
 
 class Info(models.Model):
+    id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=100)
     submitter = models.CharField(max_length=30, blank=True)
     submission_date = models.DateField(default=datetime.now)
