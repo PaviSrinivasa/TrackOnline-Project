@@ -7,9 +7,9 @@ class InfoForm(forms.ModelForm):
     class Meta:
         model = Info
         fields = '__all__'
-        exclude = ('submission_date',)
+        exclude = ('submission_date','submitter')
         labels = {'name':'What is the name of your experiment?',
-                  'submitter':'Submitted by',
+         #         'submitter':'Submitted by',
                   'exp_type':'What kind of experiment is it? (For example picture naming, 2afc, etc.)',
                   'exp_link':'What is the link to your experiment?',
                   'exp_tool':'Which tool did you use?',
@@ -24,19 +24,3 @@ class InfoForm(forms.ModelForm):
                   'comments':'Do you have any other comments?',
                   }
 
-#class DetailsForm(forms.ModelForm):
-#    exp_type = forms.CharField(max_length=100)
-#    exp_link = forms.URLField()
-#    exp_tool = forms.CharField(max_length=50)
-#    participant_find = forms.CharField(max_length=6, widget=forms.Select(choices=Details.FINDING_OPTIONS))
-#    participant_in_week = forms.IntegerField()
-#    participant_total = forms.IntegerField()
-#   satisfactory = forms.CharField(max_length=6, widget=forms.Select(choices=Details.SATISFACTION_OPTIONS))
-#    technical_issues = forms.CharField(widget=forms.Textarea)
-#   technical_exclusions = forms.IntegerField()# Percentage
-#  pp_exclusions = forms.IntegerField()#Percentage
-#    outcome = forms.CharField(widget=forms.Textarea)
-#    comments = forms.CharField(widget=forms.Textarea)
-#    class Meta:
-#        model = Details
-#        fields = '__all__'

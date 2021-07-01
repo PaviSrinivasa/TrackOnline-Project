@@ -1,0 +1,36 @@
+<nav class="navbar navbar-inverse" >
+      <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="{% url 'home' %}">Online Experiment Tracking Tool</a>
+          </div>
+          {% if user.is_authenticated %}
+          <ul class="navbar-nav">
+            <li><a class="navbar-brand" href="{% url 'home' %}">Home</a></li>
+            <li><a class="navbar-brand" href="{% url 'add' %}">Add new Experiment</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li class="nav-item">
+             <a class="nav-link" href="/accounts/logout/">{{ user.get_full_name }} Logout</a>
+           </li>
+          </ul>
+          {% else %}
+          <ul class="nav navbar-nav navbar-right">
+            <li class="nav-item">
+               <a class="nav-link" href="/accounts/login/">Login</a>
+             </li>
+          </ul>
+
+          {% endif %}
+         <!-- <form class="d-flex" method=POST action="{% url 'search' %}">
+            {% csrf_token %}
+            <form class="form-inline" method=POST action="{% url 'search' %}">
+               {% csrf_token %}
+              <input class="form-control mr-sm-2" type="search" placeholder="Search Experiment" aria-label="Search" name="searched">
+              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+           <input class="form-control me-2" type="search" placeholder="Search Experiment" aria-label="Search" name="searched">
+            <button class="btn btn-outline-secondary" type="submit">Search</button>
+          </form>-->
+      </div>
+</nav>
+<br/>

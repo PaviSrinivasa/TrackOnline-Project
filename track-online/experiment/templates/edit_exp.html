@@ -2,22 +2,25 @@
 {% block 'body' %}
 {% load widget_tweaks %}
 
-<div class="container">
+{% if user.is_authenticated %}
 
-   <h2 style="color: Red">{{ note }}</h2>
+    <div class="container">
 
-    <form action="{% url 'edit_exp' exp.id %}" method="post">
-        {% csrf_token %}
-        {% for field in editform %}
-            <div class="form-group {%if field.errors %}alert alert-danger{%endif%}">
-              {{ field.errors }}
-              {{ field.label_tag }}
-              {% render_field field class="form-control" %}
-            </div>
-        {% endfor %}
-        <input type="submit" value="Edit Experiment">
-    </form>
+       <h2 style="color: Red">{{ note }}</h2>
 
-</div>
+        <form action="{% url 'edit_exp' exp.id %}" method="post">
+            {% csrf_token %}
+            {% for field in editform %}
+                <div class="form-group {%if field.errors %}alert alert-danger{%endif%}">
+                  {{ field.errors }}
+                  {{ field.label_tag }}
+                  {% render_field field class="form-control" %}
+                </div>
+            {% endfor %}
+            <input type="submit" value="Edit Experiment">
+        </form>
+
+    </div>
+{% endif %}
 
 {% endblock %}
