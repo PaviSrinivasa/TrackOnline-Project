@@ -7,13 +7,13 @@ from .forms import InfoForm
 
 from .models import Info
 
-@login_required(login_url='/webexptrackaccounts/login/')
+@login_required(login_url='/login/')
 def home(request):
      expInfo = Info.objects.all();
      return render(request, 'home.html', {'expInfo': expInfo, })
 
 
-@login_required(login_url='/webexptrackaccounts/login/')
+@login_required(login_url='/login/')
 def add(request):
     if request.method == 'POST':
         filled_form = InfoForm(request.POST)
@@ -35,7 +35,7 @@ def add(request):
         return render(request, 'add.html', {'addform': form})
 
 
-@login_required(login_url='/webexptrackaccounts/login/')
+@login_required(login_url='/login/')
 def edit_exp(request, id):
     exp = Info.objects.get(pk=id)
     form = InfoForm(instance=exp)
