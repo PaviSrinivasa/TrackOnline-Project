@@ -10,7 +10,7 @@ urlpatterns = [
     path('edit/<int:id>/', views.edit_exp, name='edit_exp'),
     path('search', views.search, name='search'),
     path('show/<int:id>/', views.show_exp, name='show_exp'),
-    path('', include('django.contrib.auth.urls')),
+    path('webexptrackaccounts/', include('django.contrib.auth.urls')),
     #path('login/', include('django.contrib.auth.urls')),
     #path('logout/', include('django.contrib.auth.urls')),
   #  path('accounts/logout', include('django.contrib.auth.urls')),
