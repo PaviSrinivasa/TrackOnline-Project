@@ -166,6 +166,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-LOGIN_URL = ''
+LOGIN_URL = '/webexptrackaccounts'
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'

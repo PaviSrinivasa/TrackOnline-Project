@@ -6,8 +6,8 @@ from . import views
 
 urlpatterns = [
     path('webexptrack/', views.home, name='home'),
-    path('add', views.add, name='add'),
-    path('edit/<int:id>/', views.edit_exp, name='edit_exp'),
+    path('webexptrack/add', views.add, name='add'),
+    path('webexptrack/edit/<int:id>/', views.edit_exp, name='edit_exp'),
     path('search', views.search, name='search'),
     path('show/<int:id>/', views.show_exp, name='show_exp'),
     path('webexptrackaccounts/', include('django.contrib.auth.urls')),
