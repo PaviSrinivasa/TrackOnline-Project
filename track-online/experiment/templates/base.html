@@ -2,43 +2,34 @@
 <html lang="en">
   <head>
     <!-- Required meta tags -->
+    {% load static %}
       <title>Online Experiment Tool</title>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="{% static '/css/exp.css' %}">
   </head>
-  <style>
-  /* Style the Navigation bar */
-  nav {
-  background-color: #008B8B
-  height: 90px;
-  }
-
-  /* Style the footer */
-  footer {
-  bottom: 0;
-  width: 100%;
-  background-color: Black;
-  padding: 15px;
-  text-align: center;
-  font-size: 18px;
-  color: white;
-  }
-  </style>
-
+<style>
+nav {
+ background-color: #008B8B
+ height: 90px;
+}
+</style>
   {% include 'navbar.html' %}
 
   <body>
+    <div class="content">
       {% block 'body' %}
       {% endblock %}
     <p> </p>
     <p> </p>
     <p> </p>
-    <footer>
+    </div>
+    <div class="footer">
        <p>Max Planck Institute for Psycholinguistics</p>
-    </footer>
-
+    </div>
   </body>
 </html>

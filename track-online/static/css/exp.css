@@ -1,0 +1,32 @@
+h1 a, h2 a {
+    color: #0a7206;
+}
+
+body {
+    padding-left: 10px;
+}
+p1 {
+  font-family: "Sans-serif", Verdana;
+  text-align: center;
+  color: red;
+}
+div {
+  padding-top: 50px;
+  padding-right: 30px;
+  padding-bottom: 50px;
+  padding-left: 80px;
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th {
+  padding: 10px;
+  height: 70px;
+  text-align: left;
+  vertical-align: middle;
+}
+tr:hover {
+  background-color: #f5f5f5;
+}
