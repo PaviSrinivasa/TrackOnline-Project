@@ -166,7 +166,7 @@ USE_TZ = True
 
 ADMIN_MEDIA_PREFIX = '/static/admin/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-STATIC_URL = '/track-online/static/'
+STATIC_URL = '/webexptrack/static/'
 #STATICFILES_DIRS = [ os.path.join(BASE_DIR, 'static'), ]
 
 MEDIA_URL = '/media/'
