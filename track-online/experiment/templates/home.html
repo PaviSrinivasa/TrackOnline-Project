@@ -1,12 +1,16 @@
 {% extends 'base.html' %}
 {% block 'body' %}
-
+<div class="form-row">
+        <div class="card card-body">
+            <form action="{% url 'home' %}" method="GET">
+                <h3>Search here for: </h3>
+                    {{myFilter.form}}
+                <input type="submit" button class="btn btn-primary" value="Search">
+            </form>
+        </div>
+</div>
+<p> </p>
 {% if user.is_authenticated %}
-
-    <h2 style="color: Red">{{ note }}</h2>
-
-    <p> </p>
-    <body>
     <table class="table table-hover" style="border: 1px solid black, border-collapse: collapse">
         <tr col span="15" style="background-color:LightGray">
             <th>Name</th>
@@ -50,9 +54,6 @@
         </tr>
         {% endfor %}
     </table>
-
-    </body>
-    </html>
 
 {% else %}
   <p>You are not logged in</p>

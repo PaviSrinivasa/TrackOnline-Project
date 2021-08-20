@@ -1,7 +1,10 @@
 from django.contrib.auth.decorators import login_required
+from django.db.models import Q
 from django.shortcuts import render,redirect
 from django.http import Http404
 from django.urls import NoReverseMatch
+from django.contrib import messages
+from .filters import ExpFilter
 
 from .forms import InfoForm
 
@@ -9,9 +12,13 @@ from .models import Info
 
 @login_required(login_url='/webexptrackaccounts/login/')
 def home(request):
-     expInfo = Info.objects.all();
-     return render(request, 'home.html', {'expInfo': expInfo, })
-
+    expInfo = Info.objects.all().order_by('-id')
+    if request.method == "GET":
+        myFilter = ExpFilter(request.GET, queryset=expInfo)
+        expInfo = myFilter.qs
+        return render(request, 'home.html', {'expInfo': expInfo, 'myFilter': myFilter, })
+    else:
+        return render(request, 'home.html', {'expInfo': expInfo, })
 
 @login_required(login_url='/webexptrackaccounts/login/')
 def add(request):
@@ -21,18 +28,17 @@ def add(request):
             obj = filled_form.save(commit=False)
             obj.submitter = request.user
             created_exp = filled_form.save()
+            messages.success(request,'Success!! The new experiment has been added!')
             created_exp_pk = created_exp.id
-            #new_name = filled_form.cleaned_data.get('name')
-            note = 'Success!! The new experiment has been added!'
         else:
-            note = 'The new experiment was not created, please try again!'
+            messages.error(request,'The new experiment was not created, please try again!')
         new_form = InfoForm()
-        expInfo = Info.objects.all()
-        return render(request, 'home.html', {'note': note, 'expInfo': expInfo, 'created_exp_pk':created_exp_pk,})
-        #return render(request, 'add.html', {'addform': new_form, 'note': note, 'created_exp_pk':created_exp_pk,})
+        expInfo = Info.objects.all().order_by('-id')
+        myFilter = ExpFilter(request.GET, queryset=expInfo)
+        return render(request, 'home.html', {'expInfo': expInfo, 'created_exp_pk': created_exp_pk,'myFilter': myFilter, })
     else:
         form = InfoForm()
-        return render(request, 'add.html', {'addform': form})
+        return render(request, 'add.html', {'addform': form, })
 
 
 @login_required(login_url='/webexptrackaccounts/login/')
@@ -44,28 +50,17 @@ def edit_exp(request, id):
             filled_form = InfoForm(request.POST, instance=exp)
             if filled_form.is_valid():
                 filled_form.save()
+                messages.success(request,'The experiment has been updated!')
                 form = filled_form
-                expInfo = Info.objects.all()
-                note = 'The experiment has been updated!'
-                return render(request, 'home.html', {'note':note,'expInfo': expInfo,'editform':form,'exp':exp})
-                #return render(request, 'edit_exp.html', {'note':note,'editform':form,'exp':exp})
+                expInfo = Info.objects.all().order_by('-id')
+                myFilter = ExpFilter(request.GET, queryset=expInfo)
+                return render(request, 'home.html', {'expInfo': expInfo,'editform': form, 'exp':exp,'myFilter': myFilter, })
     else:
-            note = 'Sorry! You do not have permission to edit this experiment!'
-            return render(request, 'home.html', {'note':note,})
-    return render(request, 'edit_exp.html', {'editform':form,'exp':exp})
+            messages.error(request,'Sorry! You do not have permission to edit this experiment!')
+            expInfo = Info.objects.all().order_by('-id')
+            myFilter = ExpFilter(request.GET, queryset=expInfo)
+            return render(request, 'home.html', {'expInfo': expInfo, 'myFilter': myFilter, })
+    return render(request, 'edit_exp.html', {'editform': form, 'exp': exp, })
 
-def search(request):
-    if request.method == "POST":
-        searched = request.POST['searched']
-        exps = Info.objects.filter(name__icontains=searched)
-        return render(request, 'search.html', {'searched':searched,'exps':exps})
-    else:
-        return render(request, 'search.html', {})
-
-def show_exp(request,id):
-    exp = Info.objects.get(pk=id);
-    return render(request, 'show_exp.html', {
-        'exp': exp
-        })
 
 
