@@ -1,10 +1,10 @@
-<nav class="navbar navbar-inverse" >
+{% load static %}
+
+<div class="navbar" >
       <div class="container-fluid">
-          <div class="navbar-header">
-            <a class="navbar-brand" href="{% url 'home' %}">Online Experiment Tracking Tool</a>
-          </div>
           {% if user.is_authenticated %}
               <ul class="navbar-nav">
+                <li><a class="navbar-brand" href="{% url 'home' %}">Web Experiment Tracking Tool</a></li>
                 <li><a class="navbar-brand" href="{% url 'home' %}">Home</a></li>
                 <li><a class="navbar-brand" href="{% url 'add' %}">Add new Experiment</a></li>
               </ul>
@@ -21,5 +21,5 @@
               </ul>
           {% endif %}
       </div>
-</nav>
+</div>
 <br/>

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block 'body' %}
+{% load widget_tweaks %}
+
+<div class="container">
+        {% if searched %}
+            <h1>Search results for:  {{ searched }}</h1>
+            <br/>
+            {% for exp in exps %}
+                <a href="{% url 'show_exp' exp.id %}">{{ exp.name }}</a><br/>
+            {% endfor %}
+        {% else %}
+            <h1>Hey! You Forgot To Search For an Experiment...</h1>
+        {% endif %}
+</div>
+
+{% endblock %}

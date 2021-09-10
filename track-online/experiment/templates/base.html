@@ -10,15 +10,21 @@
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
-    <link rel="stylesheet" href="{% static '/css/exp.css' %}">
+    <link rel="stylesheet" href="{% static 'css/exp.css' %}">
   </head>
 <style>
-nav {
- background-color: #008B8B
- height: 90px;
-}
+
 </style>
-  {% include 'navbar.html' %}
+ {% load static %}
+  <div>
+    <div>
+      <div class="logo">
+          <a href="https://www.mpi.nl/"><img src="{% static 'images/MPI_logo_regular.png' %}" class="logo"></a>
+      </div>
+    </div>
+  </div>
+
+   {% include 'navbar.html' %}
 
   {% for message in messages %}
     <div class="container-fluid p-0">
@@ -30,13 +36,7 @@ nav {
       </div>
     </div>
   {% endfor %}
-<!--  {% if messages %}
-        {% for message in messages %}
-            <div class="alert alert-{% if message.tags == 'error' %} danger {% else %} {{ message.tags }} {% endif %}" role="alert">
-                {{ message }}
-            </div>
-        {% endfor %}
-  {% endif %} -->
+
   <body>
     <div class="content">
       {% block 'body' %}
