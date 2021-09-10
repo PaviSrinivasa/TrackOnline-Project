@@ -7,10 +7,12 @@ html, body {
 body {
   display: flex;
   flex-direction: column;
+  margin-top: 10px;
 }
 
 .content {
   flex: 1 0 auto;
+  padding: 15px;
 }
 
 .h3 {
@@ -18,16 +20,6 @@ body {
  margin:10px;
 }
 
-.logo{
-  display: block;
-  object-fit: cover;
-  margin-left: auto;
-  margin-right: auto;
-  max-height:50%;
-  max-width:50%;
-  align-items: center;
-  text-align:center;
-}
 
 table {
   border-collapse: collapse;
@@ -48,10 +40,22 @@ tr:hover {
   margin-bottom:100px;/* Height of footer*/
 }
 
+
+.logo{
+  display: block;
+  object-fit: cover;
+  margin-left: auto;
+  margin-right: auto;
+  max-height:50%;
+  max-width:50%;
+  align-items: center;
+  text-align:center;
+}
+
 .navbar{
+ margin-top: 150px;
  display: block;
- position: relative;
- overflow: auto;
+ overflow: hidden;
  margin:0 ;
  height: 30px;
  width: 100%;
@@ -60,15 +64,23 @@ tr:hover {
  list-style-type: none;
 }
 
-.container-fluid{
+.sticky {
   position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.sticky + .content {
+  padding-top: 60px;
+}
+
+.container-fluid{
   background-color: #00786A;
   width:100%;
 }
 
 ul {
   list-style-type: none;
-  position: auto;
   flex-wrap: nowrap;
   background-color: #00786A;
 }
@@ -81,11 +93,12 @@ li {
 }
 
 li:not(:last-child) {
-   margin-bottom: 3px;
+   margin-bottom: 10px;
 }
 
 li a {
   color: white;
+  padding: 14px;
 }
 
 .footer {
@@ -100,4 +113,3 @@ li a {
   color: white;
   flex-shrink: 0;
 }
-
