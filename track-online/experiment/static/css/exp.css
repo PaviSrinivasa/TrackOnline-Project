@@ -44,16 +44,15 @@ tr:hover {
 .logo{
   display: block;
   object-fit: cover;
-  margin-left: auto;
+  margin-left: 0;
   margin-right: auto;
   max-height:50%;
   max-width:50%;
-  align-items: center;
-  text-align:center;
+  align-items: left;
+  text-align: left;
 }
 
 .navbar{
- margin-top: 150px;
  display: block;
  overflow: hidden;
  margin:0 ;
