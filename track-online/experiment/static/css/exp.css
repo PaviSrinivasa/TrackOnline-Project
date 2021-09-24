@@ -40,27 +40,23 @@ tr:hover {
   margin-bottom:100px;/* Height of footer*/
 }
 
-
-.logo{
-  display: block;
-  object-fit: cover;
-  margin-left: 0;
-  margin-right: auto;
-  max-height:50%;
-  max-width:50%;
-  align-items: left;
-  text-align: left;
+#divcontainerfluid{
+ background-color: #00786A;
+ postion: fixed;
+ width:100%;
 }
 
-.navbar{
+#idnavbar {
+ margin-top: 150px;
+ max-width: 3000px;
+ min-width: 1500px;
+ width: 100%;
  display: block;
  overflow: hidden;
- margin:0 ;
- height: 30px;
- width: 100%;
- background-color: #00786A;
+ margin:0 auto;
  list-style:none;
  list-style-type: none;
+ text-align: center;
 }
 
 .sticky {
@@ -73,32 +69,65 @@ tr:hover {
   padding-top: 60px;
 }
 
-.container-fluid{
-  background-color: #00786A;
-  width:100%;
+.navbar-brand {
+ font-family: Arial;
+ color: white;
+ text-align: center;
+}
+
+#navbarNavAltMarkup{
+ justify-content: center;
+ text-align: center;
 }
 
 ul {
   list-style-type: none;
   flex-wrap: nowrap;
+  position: auto;
   background-color: #00786A;
+  color: white;
+  text-align: center;
+  margin-top: 14px;
 }
 
 li {
-  float: left;
+  float: none;
   flex-grow: 1;
-  background-color: #00786A;
-  gap: 30px;
-}
-
-li:not(:last-child) {
-   margin-bottom: 10px;
+  display: inline-block;
+  text-align: center;
+  margin-top: 14px;
 }
 
 li a {
+  text-align: center;
+  padding-top: 60px;
+  font-family: Arial;
   color: white;
-  padding: 14px;
+  padding: 40px;
+  font-size: medium;
+  text-anchor: middle;
+  text-decoration: none;
 }
+
+.navbar-right{
+  margin-top: -16px;
+  color: white;
+  font-family: Arial;
+  font-size: medium;
+}
+
+.logo{
+  display: block;
+  object-fit: cover;
+  margin-left: 0;
+  margin-right: auto;
+  max-height:50%;
+  max-width:50%;
+  align-items: left;
+  text-align: left;
+}
+
+
 
 .footer {
   position: fixed;
