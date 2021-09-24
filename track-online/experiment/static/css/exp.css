@@ -24,6 +24,7 @@ body {
 table {
   border-collapse: collapse;
   width: 100%;
+  min-width: 1800px;
 }
 
 th {
@@ -49,7 +50,7 @@ tr:hover {
 #idnavbar {
  margin-top: 150px;
  max-width: 3000px;
- min-width: 2000px;
+ min-width: 1800px;
  width: 100%;
  display: block;
  overflow: hidden;
