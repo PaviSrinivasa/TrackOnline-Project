@@ -9,7 +9,7 @@ class Info(models.Model):
     FINDING_OPTIONS = [('HARD', 'HARD'), ('MEDIUM', 'MEDIUM'),('EASY','EASY')]
     SATISFACTION_OPTIONS = [('YES','YES'), ('NO','NO')]
     exp_type = models.CharField(max_length=100)
-    exp_link = models.URLField()
+    exp_link = models.CharField(max_length=180)
     exp_tool = models.CharField(max_length=50)
     participant_find = models.CharField(max_length=6, choices=FINDING_OPTIONS, blank=False)
     participant_in_week = models.IntegerField(null=False)
