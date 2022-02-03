@@ -40,7 +40,11 @@
             <th>{{infodetail.submitter}}</th>
             <th>{{infodetail.submission_date}}</th>
             <th> {{ infodetail.exp_type }}</th>
-            <th> <a href={{ infodetail.exp_link }}>{{ infodetail.exp_link }}</a></th>
+            {% if infodetail.exp_link %}
+                <th> <a href={{ infodetail.exp_link }}>{{ infodetail.exp_link }}</a></th>
+            {% else %}
+                <th>{{ infodetail.exp_link }}</th>
+            {% endif %}
             <th>{{ infodetail.exp_tool }}</th>
             <th>{{ infodetail.participant_find }}</th>
             <th>{{ infodetail.participant_in_week }}</th>
